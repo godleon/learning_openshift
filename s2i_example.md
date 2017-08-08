@@ -10,8 +10,7 @@
 > Used to install the sources into the location where the application will be run and prepare the application for deployment (eg. installing dependencies, etc.)
 
 2. `s2i/bin/run`
-> This script is responsible for running the application by using the
-application web server.
+> This script is responsible for running the application by using the application web server.
 
 3. `s2i/bin/usage`
 > This script prints the usage of this image.

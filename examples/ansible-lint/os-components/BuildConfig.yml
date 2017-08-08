@@ -3,13 +3,17 @@ kind: BuildConfig
 apiVersion: v1
 metadata:
   name: ansible-lint
-  # labels:
-  #   name: ansible-lint-sample-build
+  labels:
+    name: ansible-lint-sample-build
 spec:
   triggers:
   - type: Generic
     generic:
       secret: secret101
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "ansible-lint-sample:latest"
   source:
     type: Git
     git:
@@ -25,7 +29,3 @@ spec:
       env:
       - name: "UPGRADE_PIP_TO_LATEST"
         value: "true"
-  output:
-    to:
-      kind: ImageStreamTag
-      name: ansible-lint-sample:latest
