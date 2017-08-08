@@ -1,5 +1,18 @@
 #!/bin/bash
 
-ecoh "Hello Ansible Lint Test!!!"
+echo "Hello Ansible Lint Test!!!"
 
-exit 1
+sleep 10
+
+echo "Hello Ansible Lint Test!!!"
+
+sleep 10
+
+echo "Hello Ansible Lint Test!!!"
+
+sleep 10
+
+echo "Hello Ansible Lint Test!!!"
+
+
+exit 0

@@ -19,7 +19,7 @@ spec:
         kind: ImageStreamTag
         name: ansible-lint-sample:latest
   - type: ConfigChange
-  # replicas: 1
+  replicas: 1
   # selector:
   #   name: frontend
   template:
