@@ -19,7 +19,7 @@ spec:
     git:
       uri: https://github.com/godleon/learning_openshift
       ref: "master"
-    contextDir: "examples/ansible-lint"
+    contextDir: "examples/ansible-lint-s2i"
   strategy:
     type: Source
     sourceStrategy:
