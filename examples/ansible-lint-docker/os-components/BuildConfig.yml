@@ -10,10 +10,10 @@ spec:
   - type: Generic
     generic:
       secret: secret101
-  # output:
-  #   to:
-  #     kind: ImageStreamTag
-  #     name: "ansible-lint-docker:latest"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "ansible-lint-docker:latest"
   source:
     type: Git
     git:
