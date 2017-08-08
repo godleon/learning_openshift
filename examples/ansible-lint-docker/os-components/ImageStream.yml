@@ -2,12 +2,4 @@
 kind: ImageStream
 apiVersion: v1
 metadata:
-  name: python-35-centos7
-spec:
-  dockerImageRepository: centos/python-35-centos7:latest
-
----
-kind: ImageStream
-apiVersion: v1
-metadata:
-  name: ansible-lint-sample
+  name: ansible-lint-docker
