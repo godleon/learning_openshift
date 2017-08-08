@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ls -al /opt/app-root/etc
+
+set -e
+
+pwd
+
+find .
+
+echo "Hello ANSIBLE LINT TEST!!"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run"
