@@ -2,9 +2,9 @@
 kind: BuildConfig
 apiVersion: v1
 metadata:
-  name: my-ansible-lint
+  name: ansible-lint-base
   labels:
-    name: my-ansible-lint-build
+    name: ansible-lint-base
 spec:
   triggers:
   - type: Generic
@@ -13,19 +13,19 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: "my-ansible-lint:latest"
+      name: "ansible-lint-base:latest"
   source:
     type: Git
     git:
       uri: https://github.com/godleon/learning_openshift
       ref: "master"
-    contextDir: "examples/ansible-lint-s2i"
+    contextDir: "examples/ansible-lint-s2i_base-image"
   strategy:
     type: Source
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: ansible-lint-base:latest
-      # env:
-      # - name: "UPGRADE_PIP_TO_LATEST"
-      #   value: "true"
+        name: python-35-centos7:latest
+      env:
+      - name: "UPGRADE_PIP_TO_LATEST"
+        value: "true"

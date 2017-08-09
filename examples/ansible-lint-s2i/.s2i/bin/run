@@ -9,22 +9,24 @@ pwd
 
 find .
 
-echo "Hello ANSIBLE LINT TEST!!"
+echo "Hello, this is ANSIBLE LINT(in my-ansible-lint) !"
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 1"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 1"
 sleep 10
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 2"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint)==> run 2"
 sleep 10
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 3"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 3"
 sleep 10
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 4"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 4"
 sleep 10
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 5"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 5"
 sleep 10
 
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 6"
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 6"
 sleep 10
+
+bash app.sh

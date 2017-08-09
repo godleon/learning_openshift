@@ -1,7 +1,7 @@
 kind: DeploymentConfig
 apiVersion: v1
 metadata:
-  name: ansible-lint
+  name: my-ansible-lint
 spec:
   strategy:
     type: Rolling
@@ -14,10 +14,10 @@ spec:
     imageChangeParams:
       automatic: true
       containerNames:
-      - run-ansible-lint-helloworld
+      - run-my-ansible-lint
       from:
         kind: ImageStreamTag
-        name: ansible-lint:latest
+        name: my-ansible-lint:latest
   - type: ConfigChange
   replicas: 1
   # selector:
@@ -25,10 +25,10 @@ spec:
   template:
     metadata:
       labels:
-        name: run-ansible-lint
+        name: run-my-ansible-lint
     spec:
       containers:
-      - name: run-ansible-lint-helloworld
+      - name: run-my-ansible-lint
         image: " "
         ports:
         - containerPort: 8080
