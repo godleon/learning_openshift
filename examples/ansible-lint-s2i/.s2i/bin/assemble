@@ -4,3 +4,7 @@ set -x
 set -e
 
 echo "Build image for changing run script"
+
+sleep 10
+
+echo "This is in my-ansible-lint"

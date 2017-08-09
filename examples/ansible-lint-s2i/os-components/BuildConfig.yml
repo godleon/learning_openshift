@@ -10,10 +10,10 @@ spec:
   - type: Generic
     generic:
       secret: secret101
-  output:
-    to:
-      kind: ImageStreamTag
-      name: "my-ansible-lint:latest"
+  # output:
+  #   to:
+  #     kind: ImageStreamTag
+  #     name: "my-ansible-lint:latest"
   source:
     type: Git
     git:

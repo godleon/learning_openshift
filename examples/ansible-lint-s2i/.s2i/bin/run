@@ -30,3 +30,5 @@ echo "THIS IS IN CUSTOMIZED S2I SCRIPT(in my-ansible-lint) ==> run 6"
 sleep 10
 
 bash app.sh
+
+exit 0
