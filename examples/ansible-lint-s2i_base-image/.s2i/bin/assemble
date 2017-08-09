@@ -4,6 +4,7 @@ set -x
 set -e
 
 ls -al /opt/app-root/etc
+cat /opt/app-root/etc/generate_container_user
 
 pwd
 find /tmp/src/
@@ -18,10 +19,10 @@ if [[ ! -z "$UPGRADE_PIP_TO_LATEST" ]]; then
   pip install -U pip
 fi
 
-#if [[ -f requirements.txt ]]; then
-#  echo "---> Installing dependencies ..."
-#  pip install -r requirements.txt
-#fi
+if [[ -f requirements.txt ]]; then
+ echo "---> Installing dependencies ..."
+ pip install -r requirements.txt
+fi
 
 # set permissions for any installed artifacts
 fix-permissions /opt/app-root
