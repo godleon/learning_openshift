@@ -3,10 +3,28 @@
 ls -al /opt/app-root/etc
 
 set -e
+set -x
 
 pwd
 
 find .
 
 echo "Hello ANSIBLE LINT TEST!!"
-echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run"
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 1"
+sleep 10
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 2"
+sleep 10
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 3"
+sleep 10
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 4"
+sleep 10
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 5"
+sleep 10
+
+echo "THIS IS IN CUSTOMIZED S2I SCRIPT ==> run 6"
+sleep 10
