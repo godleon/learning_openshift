@@ -5,6 +5,10 @@ set -e
 
 echo "Build image for changing run script"
 
-sleep 10
+sleep 3
 
 echo "This is in my-ansible-lint"
+
+sleep 3
+
+echo "Jenkins Test"
