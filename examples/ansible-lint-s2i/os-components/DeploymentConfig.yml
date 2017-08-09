@@ -1,7 +1,7 @@
 kind: DeploymentConfig
 apiVersion: v1
 metadata:
-  name: run-ansible-lint
+  name: ansible-lint
 spec:
   strategy:
     type: Rolling
@@ -17,9 +17,9 @@ spec:
       - run-ansible-lint-helloworld
       from:
         kind: ImageStreamTag
-        name: ansible-lint-sample:latest
+        name: ansible-lint:latest
   - type: ConfigChange
-  replicas: 0
+  replicas: 1
   # selector:
   #   name: frontend
   template:

@@ -1,0 +1,19 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ansible-lint
+spec:
+  parallelism: 1    
+  completions: 1    
+  template:         
+    metadata:
+      name: ansible-lint
+    spec:
+      containers:
+      - name: ansible-lint
+        #image: 172.30.255.36:5000/ansible-test/ansible-lint-sample:latest
+        image: 172.30.255.36:5000/openshift/ruby
+        command: ["echo",  "Hello Ansible Lint in Job"]
+      restartPolicy: OnFailure
+      activeDeadlineSeconds: 10

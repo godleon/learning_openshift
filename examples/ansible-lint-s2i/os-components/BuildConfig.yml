@@ -4,7 +4,7 @@ apiVersion: v1
 metadata:
   name: ansible-lint
   labels:
-    name: ansible-lint-sample-build
+    name: ansible-lint-build
 spec:
   triggers:
   - type: Generic
@@ -13,7 +13,7 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: "ansible-lint-sample:latest"
+      name: "ansible-lint:latest"
   source:
     type: Git
     git:
@@ -26,6 +26,6 @@ spec:
       from:
         kind: ImageStreamTag
         name: python-35-centos7:latest
-      env:
-      - name: "UPGRADE_PIP_TO_LATEST"
-        value: "true"
+      # env:
+      # - name: "UPGRADE_PIP_TO_LATEST"
+      #   value: "true"

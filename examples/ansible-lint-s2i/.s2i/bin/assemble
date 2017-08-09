@@ -1,8 +1,9 @@
 #!/bin/bash
 
-ls -al /opt/app-root/etc
-
+set -x
 set -e
+
+ls -al /opt/app-root/etc
 
 pwd
 find /tmp/src/
