@@ -2,6 +2,12 @@
 kind: ImageStream
 apiVersion: v1
 metadata:
-  name: s2i-base-ubuntu
+  name: python-35-centos7
 spec:
-  dockerImageRepository: ComputerScienceHouse/s2i-base-ubuntu
+  dockerImageRepository: centos/python-35-centos7
+
+---
+kind: ImageStream
+apiVersion: v1
+metadata:
+  name: ansible-lint-base

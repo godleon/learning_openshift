@@ -5,7 +5,7 @@ set -e
 
 
 pwd
-find /
+find .
 
 echo "this is in bc1"
 exit 0
