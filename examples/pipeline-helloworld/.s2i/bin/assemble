@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -x
+set -e
+
+
+pwd
+find /
+
+echo "this is in bc1"
+exit 0

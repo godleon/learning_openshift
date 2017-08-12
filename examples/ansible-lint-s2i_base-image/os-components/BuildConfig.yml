@@ -9,7 +9,11 @@ spec:
   triggers:
   - type: Generic
     generic:
-      secret: secret101
+      secret: "secret101"
+  - type: "GitHub"
+    github:
+      secret: "secret101"
+  - type: ConfigChange
   output:
     to:
       kind: ImageStreamTag

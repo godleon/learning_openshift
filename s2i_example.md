@@ -19,7 +19,7 @@
 
 1. 使用 Openshift 所提供的 S2I container image
 
-2. 自己打包 image，打包方式可參考[此篇文章(How to Create an S2I Builder Image – OpenShift Blog)] (https://blog.openshift.com/create-s2i-builder-image/) or [官網說明(S2I Requirements | Creating Images | OpenShift Container Platform 3.5)](https://docs.openshift.com/container-platform/3.5/creating_images/s2i.html)
+2. 自己打包 image，打包方式可參考[此篇文章(How to Create an S2I Builder Image – OpenShift Blog)] (https://blog.openshift.com/create-s2i-builder-image/)
 
 
 
