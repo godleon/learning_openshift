@@ -1,7 +1,7 @@
 kind: BuildConfig
 apiVersion: v1
 metadata:
-  name: pipeline-parallel
+  name: pipeline.builds
   # labels:
   #   name: pipeline-parallel
 spec:
@@ -17,4 +17,4 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfilePath: "examples/pipeline-helloworld/pipeline_builds.groovy"
+      jenkinsfilePath: "examples/pipeline-helloworld/pipeline.builds.groovy"
