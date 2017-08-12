@@ -1,8 +1,14 @@
 stage ("task 1") {
+
+  hook = registerWebhook()
+
   node {
     writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1")
     sh "oc create -f job.yaml"
   }
+
+  data = waitForWebhook hook
+  echo "Job 1 result --------> ${data}"
 }
 
 
