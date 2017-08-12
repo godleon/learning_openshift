@@ -28,6 +28,6 @@ spec:
       from:
         kind: ImageStreamTag
         name: s2i-base-ubuntu:latest
-      # env:
-      # - name: "UPGRADE_PIP_TO_LATEST"
-      #   value: "true"
+      env:
+      - name: "MYPARA"
+        value: "HELLO PIPELINE ==> BC1"

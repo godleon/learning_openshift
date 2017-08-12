@@ -7,5 +7,5 @@ set -e
 pwd
 find .
 
-echo "this is in bc1"
+echo "${MYPARA}"
 exit 0
