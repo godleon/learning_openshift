@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: job-1
+spec:
+  parallelism: 1    
+  completions: 1    
+  template:         
+    metadata:
+      name: job-1
+    spec:
+      containers:
+      - name: ubuntu-job-1
+        image: ubuntu
+        command: ["echo", "Job-1 in Ubuntu image"]
+      restartPolicy: OnFailure

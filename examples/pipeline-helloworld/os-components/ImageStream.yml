@@ -5,3 +5,11 @@ metadata:
   name: s2i-base-ubuntu
 spec:
   dockerImageRepository: computersciencehouse/s2i-base-ubuntu
+
+
+kind: ImageStream
+apiVersion: v1
+metadata:
+  name: ubuntu
+spec:
+  dockerImageRepository: ubuntu

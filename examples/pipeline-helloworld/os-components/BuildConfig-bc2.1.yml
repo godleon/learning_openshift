@@ -2,7 +2,7 @@
 kind: BuildConfig
 apiVersion: v1
 metadata:
-  name: bc2
+  name: bc2-1
 spec:
   triggers:
   - type: Generic
@@ -30,4 +30,4 @@ spec:
         name: s2i-base-ubuntu:latest
       env:
       - name: "MYPARA"
-        value: "HELLO PIPELINE ==> BC2"
+        value: "HELLO PIPELINE ==> BC2.1"

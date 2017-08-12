@@ -12,10 +12,4 @@ spec:
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
-      jenkinsfile: |-
-        node('maven') {
-          stage 'build'
-          openshiftBuild(buildConfig: 'bc1', showBuildLogs: 'true')
-          stage 'deploy'
-          openshiftDeploy(deploymentConfig: 'frontend')
-        }
+      jenkinsfilePath: "examples/pipeline-helloworld/parallel.groovy"
