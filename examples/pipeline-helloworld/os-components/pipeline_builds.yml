@@ -1,14 +1,19 @@
 kind: BuildConfig
 apiVersion: v1
 metadata:
-  name: sample-pipeline
-  labels:
-    name: sample-pipeline
+  name: pipeline-parallel
+  # labels:
+  #   name: pipeline-parallel
 spec:
   triggers:
   - type: Generic
     generic:
       secret: secret101
+  source:
+    type: "Git"
+    git:
+      uri: "https://github.com/godleon/learning_openshift"
+      ref: "master"
   strategy:
     type: JenkinsPipeline
     jenkinsPipelineStrategy:
