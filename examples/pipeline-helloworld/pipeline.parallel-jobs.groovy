@@ -20,7 +20,7 @@ def formatJob(buildId, id) {
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: curl-${buildId}-${id}
+  name: job-${buildId}-${id}
 spec:
   template:
     metadata:
@@ -30,7 +30,7 @@ spec:
       containers:
       - name: ubuntu-job-${buildId}-${id}
         image: ubuntu
-        command: ["echo", "=====> start", ";", "sleep", "10", ";", "echo", "=====> end"]
+        command: ["echo '=====> start'; sleep 10; echo '=====> end'",]
       restartPolicy: Never
   """
 }
