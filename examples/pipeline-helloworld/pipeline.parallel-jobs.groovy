@@ -3,17 +3,17 @@ stage ("task 1") {
   hook = registerWebhook()
 
   node {
-    writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1")
+    writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1", hook.getURL())
     sh "oc create -f job.yaml"
   }
 
   data = waitForWebhook hook
-  echo "Job 1 result --------> ${data}"
+  echo "Job 1 result: ${data}"
 }
 
 
 
-def formatJob(buildId, id) {
+def formatJob(buildId, id, callbackUrl) {
   """
 apiVersion: batch/v1
 kind: Job
@@ -28,7 +28,10 @@ spec:
       containers:
       - name: ubuntu-job-${buildId}-${id}
         image: ubuntu
-        command: ["echo", "job-${buildId}-${id} in Ubuntu image"]
+        env:
+        - name: CALLBACK_URL
+          value: ${callbackUrl}
+        command: ["curl -X POST -k -d 'job-${buildId}-${id} in Ubuntu image' $CALLBACK_URL"]
       restartPolicy: Never
   """
 }
