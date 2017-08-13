@@ -30,9 +30,6 @@ spec:
       containers:
       - name: ubuntu-job-${buildId}-${id}
         image: ubuntu
-        env:
-        - name: CALLBACK_URL
-          value: ${callbackUrl}
         command: ["echo", "=====> start", ";", "sleep", "10", ";", "echo", "=====> end"]
       restartPolicy: Never
   """
