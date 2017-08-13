@@ -31,7 +31,7 @@ spec:
         env:
         - name: CALLBACK_URL
           value: ${callbackUrl}
-        command: ["echo", "$CALLBACK_URL"]
+        command: ["echo", "123"]
       restartPolicy: Never
   """
 }
