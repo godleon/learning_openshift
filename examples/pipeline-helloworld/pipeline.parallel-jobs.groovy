@@ -15,7 +15,7 @@ stage ("task 1") {
 
 
 
-def formatJob(buildId, id, callbackUrl) {
+def formatJob(buildId, id) {
   """
 apiVersion: batch/v1
 kind: Job
