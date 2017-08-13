@@ -31,7 +31,7 @@ spec:
         env:
         - name: CALLBACK_URL
           value: ${callbackUrl}
-        command: ["curl -X POST -k -d 'job-${buildId}-${id} in Ubuntu image' $CALLBACK_URL"]
+        command: ["echo", "$CALLBACK_URL"]
       restartPolicy: Never
   """
 }
