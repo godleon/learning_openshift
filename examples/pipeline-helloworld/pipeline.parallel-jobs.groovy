@@ -1,14 +1,16 @@
 stage ("task 1") {
 
-  hook = registerWebhook()
+  // hook = registerWebhook()
 
   node {
-    writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1", hook.getURL())
+    // writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1", hook.getURL())
+    writeFile file: 'job.yaml', text: formatJob(env.BUILD_ID, "1")
     sh "oc create -f job.yaml"
   }
 
-  data = waitForWebhook hook
-  echo "Job 1 result: ${data}"
+  // data = waitForWebhook hook
+  // echo "Job 1 result: ${data}"
+  echo "Job1 end"
 }
 
 
@@ -31,7 +33,7 @@ spec:
         env:
         - name: CALLBACK_URL
           value: ${callbackUrl}
-        command: ["echo", "123"]
+        command: ["echo", "=====> start", ";", "sleep", "10", ";", "echo", "=====> end"]
       restartPolicy: Never
   """
 }
