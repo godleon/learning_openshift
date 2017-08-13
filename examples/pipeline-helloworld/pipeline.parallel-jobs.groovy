@@ -7,6 +7,8 @@ node {
     stage('build 2 parallel') {
       parallel branchA: {
         openshiftBuild(buildConfig: 'bc2-1', showBuildLogs: 'true')
+      }, branchB: {
+        openshiftBuild(buildConfig: 'bc2-2', showBuildLogs: 'true')
       }
     }
 
