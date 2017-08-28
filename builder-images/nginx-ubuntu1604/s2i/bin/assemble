@@ -1,0 +1,15 @@
+#!/bin/bash -e
+
+set -x
+
+echo "==================== this is in assemble script ===================="
+
+# If the 's2i-lighttpd' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+    exec ${STI_SCRIPTS_PATH}/usage
+fi
+
+echo "---> Installing application source"
+find /tmp/src/
+pwd
+cp -Rf /tmp/src/* ./

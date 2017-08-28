@@ -1,9 +1,10 @@
 # This image is an Ubuntu base image for Source-to-Image builds
-FROM ubuntu:16.04
+FROM ubuntu:xenial
 MAINTAINER godleon <godleon@gmail.com>
 
 LABEL \
     io.k8s.description="Nginx Webserver" \
+    io.k8s.display-name="Nginx 1.10.3" \
     io.openshift.tags="builder,webserver,html,nginx" \
     io.openshift.expose-services="8080:http" \
     # Location of the STI scripts inside the image.
@@ -38,21 +39,30 @@ apt-get clean
 
 # Change the default port for nginx 
 # Required if you plan on running images as a non-root user).
-RUN sed -i 's/80/8080/' /etc/nginx/nginx.conf
-RUN sed -i 's/user nginx;//' /etc/nginx/nginx.conf
+#RUN sed -i 's/80/8080/' /etc/nginx/nginx.conf
+#RUN sed -i 's/user nginx;//' /etc/nginx/nginx.conf
+#RUN echo 'server { listen 8080; }' >> /etc/nginx/nginx.conf
+RUN sed -i 's/user www-data;//' /etc/nginx/nginx.conf
+RUN sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
+COPY nginx.default.conf /etc/nginx/conf.d/default.conf
 
 # Copy the S2I scripts to /usr/libexec/s2i since we set the label that way
-COPY ./.s2i/bin/ $STI_SCRIPTS_PATH
+COPY ./s2i/bin/ $STI_SCRIPTS_PATH
 
 # Setup the 'openshift' user that is used for build execution and for the
 # application runtime execution.
 #RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" default && \
-#chown -R 1001:0 /usr/share/nginx /var/log/nginx /var/lib/nginx
 RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application User" openshift-user
 
 RUN touch /run/nginx.pid
-RUN chgrp -R 0 /usr/share/nginx /var/log/nginx /var/lib/nginx /run/nginx.pid && \
-    chmod -R g=u /usr/share/nginx /var/log/nginx /var/lib/nginx /run/nginx.pid
+RUN chown -R 1001:0 /usr/share/nginx /var/log/nginx /var/lib/nginx /run/nginx.pid
+WORKDIR /usr/share/nginx
+
+#RUN chgrp -R 0 /opt/app-root && \
+#    chmod -R g=u /opt/app-root
+
+# Drop the root user and make the content of /opt/app-root owned by user 1001
+#RUN chown -R 1001:1001 /opt/app-root
 
 USER 1001
 
