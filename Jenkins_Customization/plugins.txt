@@ -1,0 +1,3 @@
+redmine:0.21
+gitlab-plugin:1.5.1
+testlink:3.12

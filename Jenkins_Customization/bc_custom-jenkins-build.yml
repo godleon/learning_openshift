@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: custom-jenkins-build
+  namespace: openshift
+spec:
+  source:                       
+    type: "Git"
+    git:
+      uri: "https://github.com/godleon/learning_openshift.git"
+      ref: "master"
+    contextDir: "Jenkins_Customization"
+  strategy:                     
+    sourceStrategy:
+      from:
+        kind: "DockerImage"
+        name: "openshift/jenkins-2-centos7"
+    type: Source
+  output:                       
+    to:
+      kind: ImageStreamTag
+      name: custom-jenkins-2-centos7:latest
