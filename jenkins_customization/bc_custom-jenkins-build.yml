@@ -9,7 +9,7 @@ spec:
     git:
       uri: "https://github.com/godleon/learning_openshift.git"
       ref: "master"
-    contextDir: "Jenkins_Customization"
+    contextDir: "jenkins_customization"
   strategy:                     
     sourceStrategy:
       from:
