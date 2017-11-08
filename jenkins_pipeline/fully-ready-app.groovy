@@ -21,7 +21,7 @@ openshift.withCluster() {
 
         // A robust script should not assume that only one build has been created, so
         // we will need to iterate through all builds.
-        // def allDone = true
+        def allDone = true
         it.withEach {
             // 'it' is now bound to a Selector selecting a single object for this iteration.
             // Let's model it in Groovy to check its status.
