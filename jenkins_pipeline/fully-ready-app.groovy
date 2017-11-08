@@ -47,6 +47,7 @@ openshift.withCluster() {
         openshift.selector('dc/ruby-hello-world').delete()
         openshift.selector('svc/ruby-hello-world').delete()
         openshift.selector('is/ruby-22-centos7').delete()
+        openshift.selector('is/ruby-hello-world').delete()
         openshift.selector('bc/ruby-hello-world').delete()
     }
 }
