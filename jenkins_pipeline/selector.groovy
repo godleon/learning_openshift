@@ -1,7 +1,5 @@
 openshift.withCluster() {
 
-    echo "Hello from the project running Jenkins: ${openshift.project()}"
-
     def saSelector = openshift.selector('serviceaccount')
     saSelector.describe()
 
@@ -12,8 +10,10 @@ openshift.withCluster() {
         echo "Service account: ${it.name()} is defined in ${openshift.project()}"
     }
 
-    openshift.withProject() {
-        echo "Hello from project ${openshift.project()} in cluster ${openshift.cluster()}"
-    }
+    // Prints a list of current service accounts to the console
+    echo "There are ${saSelector.count()} service accounts in project ${openshift.project()}"
+    echo "They are named: ${saSelector.names()}"
 
+    // Selectors can also be defined using qualified names
+    openshift.selector( 'buildconfig/selector' ).describe()
 }
