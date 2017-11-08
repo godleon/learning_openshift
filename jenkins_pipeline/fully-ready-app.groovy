@@ -43,5 +43,10 @@ openshift.withCluster() {
             // interrupts the operation).
             return it.object().status.phase == "Complete"
         }
+
+        openshift.selector('dc').delete()
+        openshift.selector('svc').delete()
+        openshift.selector('is').delete()
+        openshift.selector('bc').delete()
     }
 }
