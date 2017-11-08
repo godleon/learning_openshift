@@ -44,9 +44,9 @@ openshift.withCluster() {
             return it.object().status.phase == "Complete"
         }
 
-        openshift.selector('dc').delete()
-        openshift.selector('svc').delete()
-        openshift.selector('is').delete()
-        openshift.selector('bc').delete()
+        openshift.selector('dc/ruby-hello-world').delete()
+        openshift.selector('svc/ruby-hello-world').delete()
+        openshift.selector('is/ruby-22-centos7').delete()
+        openshift.selector('bc/ruby-hello-world').delete()
     }
 }
