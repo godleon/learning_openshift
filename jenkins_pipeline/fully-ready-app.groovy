@@ -31,7 +31,17 @@ openshift.withCluster() {
             return allDone;
         }
 
-        // A robust script should not assume that only one build has been created, so
-        // we will need to iterate through all builds.
+        // Uggh. That was actually a significant amount of code. Let's use untilEach(){} 
+        // instead. It acts like watch, but only executes the closure body once
+        // a minimum number of objects meet the Selector's criteria only terminates 
+        // once the body returns true for all selected objects.
+        builds.untilEach(1) { // We want a minimum of 1 build
+        
+            // Unlike watch(), untilEach binds 'it' to a Selector for a single object.
+            // Thus, untilEach will only terminate when all selected objects satisfy this 
+            // the condition established in the closure body (or until the timeout(10) 
+            // interrupts the operation).
+            return it.object().status.phase == "Complete"
+        }
     }
 }
