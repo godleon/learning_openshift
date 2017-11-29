@@ -1,0 +1,15 @@
+kind: BuildConfig
+apiVersion: v1
+metadata:
+  name: calculate-time-duration
+spec:
+  source:
+    type: "Git"
+    git:
+      uri: "https://github.com/godleon/learning_openshift.git"
+      ref: "master"
+  strategy:
+    type: JenkinsPipeline
+    jenkinsPipelineStrategy:
+      jenkinsfilePath: "examples/pipeline-calculate-time-duration/calculate-time-duration.groovy"
+      
