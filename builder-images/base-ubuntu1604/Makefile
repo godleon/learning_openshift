@@ -1,4 +1,4 @@
-IMAGE_NAME = nginx-ubuntu1604
+IMAGE_NAME = base-ubuntu1604
 
 .PHONY: build
 build:

@@ -215,3 +215,20 @@ Testing S2I Images
 
 開發 S2I image 可在本地端進行測試，並使用 OpenShift build system 進行自動化測試 & CI 的工作。
 
+
+
+
+上傳 builder image 到 local docker registry
+==========================================
+
+
+
+```bash
+apiVersion: v1
+kind: ImageStream
+metadata:
+  annotations:
+    description: Keeps track of changes in the application image
+  name: nginx-ubuntu1604
+  namespace: openshift
+```

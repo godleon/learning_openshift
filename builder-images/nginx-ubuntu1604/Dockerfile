@@ -12,10 +12,9 @@ LABEL \
 
 ENV \
     # Path to be used in other layers to place s2i scripts into
-    STI_SCRIPTS_PATH=/usr/libexec/s2i
-    #STI_SCRIPTS_PATH=/usr/libexec/s2i \
+    STI_SCRIPTS_PATH=/usr/libexec/s2i \
     # The $HOME is not set by default, but some applications needs this variable
-    #HOME=/usr/share/nginx
+    HOME=/usr/share/nginx
 
 #RUN shopt -s dotglob
 
@@ -56,7 +55,7 @@ RUN useradd -u 1001 -r -g 0 -d ${HOME} -s /sbin/nologin -c "Default Application 
 
 RUN touch /run/nginx.pid
 RUN chown -R 1001:0 /usr/share/nginx /var/log/nginx /var/lib/nginx /run/nginx.pid
-WORKDIR /usr/share/nginx
+WORKDIR ${HOME}
 
 #RUN chgrp -R 0 /opt/app-root && \
 #    chmod -R g=u /opt/app-root
@@ -68,10 +67,6 @@ USER 1001
 
 # Set the default port for applications built using this image
 EXPOSE 8080
-
-# Directory with the sources is set as the working directory so all STI scripts
-# can execute relative to this path.
-#WORKDIR ${HOME}
 
 #ENTRYPOINT ["container-entrypoint"]
 
